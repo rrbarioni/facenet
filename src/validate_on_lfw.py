@@ -41,6 +41,8 @@ from sklearn import metrics
 from scipy.optimize import brentq
 from scipy import interpolate
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 def main(args):
   
     with tf.Graph().as_default():

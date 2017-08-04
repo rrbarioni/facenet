@@ -1,0 +1,37 @@
+   0  Ariel Sharon: 0.953
+   1  Ariel Sharon: 0.938
+   2  Ariel Sharon: 0.912
+   3  Colin Powell: 0.922
+   4  Colin Powell: 0.898
+   5  Colin Powell: 0.923
+   6  Donald Rumsfeld: 0.942
+   7  Donald Rumsfeld: 0.938
+   8  Donald Rumsfeld: 0.933
+   9  George W Bush: 0.955
+  10  George W Bush: 0.928
+  11  George W Bush: 0.928
+  12  Gerhard Schroeder: 0.921
+  13  Gerhard Schroeder: 0.947
+  14  Gerhard Schroeder: 0.924
+  15  Hugo Chavez: 0.918
+  16  Hugo Chavez: 0.922
+  17  Hugo Chavez: 0.932
+  18  Ariel Sharon: 0.547
+  19  Ariel Sharon: 0.442
+  20  Ariel Sharon: 0.467
+  21  Ariel Sharon: 0.314
+  22  Ariel Sharon: 0.410
+  23  Ariel Sharon: 0.298
+  24  Gerhard Schroeder: 0.444
+  25  Gerhard Schroeder: 0.324
+  26  Hugo Chavez: 0.332
+  27  George W Bush: 0.273
+  28  George W Bush: 0.254
+  29  Hugo Chavez: 0.232
+  30  George W Bush: 0.263
+  31  George W Bush: 0.223
+  32  George W Bush: 0.283
+  33  Gerhard Schroeder: 0.413
+  34  Donald Rumsfeld: 0.338
+  35  Donald Rumsfeld: 0.299
+Accuracy: 0.500

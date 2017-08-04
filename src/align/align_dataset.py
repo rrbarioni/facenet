@@ -26,6 +26,9 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import sys
+sys.path.append('src/')
+
 from scipy import misc
 import sys
 import os
@@ -50,6 +53,8 @@ def main(args):
     nrof_images_total = 0
     nrof_prealigned_images = 0
     nrof_successfully_aligned = 0
+    nrof_not_successfully_aligned = 0
+    lfw_align_fail_list = open("lfw_align_fail_list.txt", "w")
     for cls in dataset:
         output_class_dir = os.path.join(output_dir, cls.name)
         if not os.path.exists(output_class_dir):
@@ -107,12 +112,14 @@ def main(args):
                             nrof_prealigned_images += 1
                             misc.imsave(output_filename, cropped)
                     else:
+                        nrof_not_successfully_aligned += 1
                         print('Unable to align "%s"' % image_path)
+                        lfw_align_fail_list.write("Case " + nrof_not_successfully_aligned + ": unable to align " + image_path)
                             
     print('Total number of images: %d' % nrof_images_total)
     print('Number of successfully aligned images: %d' % nrof_successfully_aligned)
     print('Number of pre-aligned images: %d' % nrof_prealigned_images)
-            
+    lfw_align_fail_list.close()
 
 def parse_arguments(argv):
     parser = argparse.ArgumentParser()

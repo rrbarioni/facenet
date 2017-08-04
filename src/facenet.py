@@ -324,16 +324,28 @@ class ImageClass():
   
 def get_dataset(paths, has_class_directories=True):
     dataset = []
-    for path in paths.split(':'):
-        path_exp = os.path.expanduser(path)
-        classes = os.listdir(path_exp)
-        classes.sort()
-        nrof_classes = len(classes)
-        for i in range(nrof_classes):
-            class_name = classes[i]
-            facedir = os.path.join(path_exp, class_name)
-            image_paths = get_image_paths(facedir)
-            dataset.append(ImageClass(class_name, image_paths))
+    # for path in paths.split(':'):
+    #     path_exp = os.path.expanduser(path)
+    #     classes = os.listdir(path_exp)
+    #     classes.sort()
+    #     nrof_classes = len(classes)
+    #     for i in range(nrof_classes):
+    #         class_name = classes[i]
+    #         facedir = os.path.join(path_exp, class_name)
+    #         image_paths = get_image_paths(facedir)
+    #         dataset.append(ImageClass(class_name, image_paths))
+    # print("paths.split(':'): " + str(paths.split(':')))
+    path = paths.split(':')[1]
+    # print("path: " + paths.split(':')[1])
+    path_exp = os.path.expanduser(path)
+    classes = os.listdir(path_exp)
+    classes.sort()
+    nrof_classes = len(classes)
+    for i in range(nrof_classes):
+        class_name = classes[i]
+        facedir = os.path.join(path_exp, class_name)
+        image_paths = get_image_paths(facedir)
+        dataset.append(ImageClass(class_name, image_paths))
   
     return dataset
 

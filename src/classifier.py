@@ -36,6 +36,8 @@ import math
 import pickle
 from sklearn.svm import SVC
 
+from itertools import groupby
+
 def main(args):
   
     with tf.Graph().as_default():
@@ -60,7 +62,7 @@ def main(args):
 
                  
             paths, labels = facenet.get_image_paths_and_labels(dataset)
-            
+            # print([len(list(group)) for key, group in groupby(labels)])
             print('Number of classes: %d' % len(dataset))
             print('Number of images: %d' % len(paths))
             
@@ -78,8 +80,10 @@ def main(args):
             print('Calculating features for images')
             nrof_images = len(paths)
             nrof_batches_per_epoch = int(math.ceil(1.0*nrof_images / args.batch_size))
+            print("nrof_batches_per_epoch: " + str(nrof_batches_per_epoch))
             emb_array = np.zeros((nrof_images, embedding_size))
             for i in range(nrof_batches_per_epoch):
+                print("current batch: " + str(i))
                 start_index = i*args.batch_size
                 end_index = min((i+1)*args.batch_size, nrof_images)
                 paths_batch = paths[start_index:end_index]
@@ -112,15 +116,20 @@ def main(args):
                 print('Loaded classifier model from file "%s"' % classifier_filename_exp)
 
                 predictions = model.predict_proba(emb_array)
+                print(str(predictions))
                 best_class_indices = np.argmax(predictions, axis=1)
                 best_class_probabilities = predictions[np.arange(len(best_class_indices)), best_class_indices]
                 
+                writeLFW50ImagesPeopleResult = open("resultFromLFWPeopleWith50Images.txt", "w")
+
                 for i in range(len(best_class_indices)):
                     print('%4d  %s: %.3f' % (i, class_names[best_class_indices[i]], best_class_probabilities[i]))
+                    writeLFW50ImagesPeopleResult.write('%4d  %s: %.3f\n' % (i, class_names[best_class_indices[i]], best_class_probabilities[i]))
                     
                 accuracy = np.mean(np.equal(best_class_indices, labels))
                 print('Accuracy: %.3f' % accuracy)
-                
+                writeLFW50ImagesPeopleResult.write('Accuracy: %.3f\n' % accuracy)
+                writeLFW50ImagesPeopleResult.close()
             
 def split_dataset(dataset, min_nrof_images_per_class, nrof_train_images_per_class):
     train_set = []
@@ -167,4 +176,5 @@ def parse_arguments(argv):
     return parser.parse_args(argv)
 
 if __name__ == '__main__':
+    # print("sys.argv[1:]: " + str(sys.argv[1:]))
     main(parse_arguments(sys.argv[1:]))

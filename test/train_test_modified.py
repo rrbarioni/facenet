@@ -43,12 +43,15 @@ class TrainTest(unittest.TestCase):
   
     @classmethod
     def setUpClass(self):
-        self.tmp_dir = tempfile.mkdtemp()
-        print("tmp_dir: " + self.tmp_dir)
-        self.dataset_dir = os.path.join(self.tmp_dir, 'dataset')
-        create_mock_dataset(self.dataset_dir, 160)
-        self.lfw_pairs_file = create_mock_lfw_pairs(self.tmp_dir)
-        print(self.lfw_pairs_file)
+        # self.tmp_dir = tempfile.mkdtemp()
+        self.tmp_dir = "C:\\Users\\Ricardo R Barioni\\Documents\\facenet\\tmp_dir"
+        print("tmp_dir: " + self.tmp_dir + "\n")
+        # self.dataset_dir = os.path.join(self.tmp_dir, 'dataset')
+        # create_mock_dataset(self.dataset_dir, 160)
+        self.dataset_dir = os.path.join(self.tmp_dir, 'dataset_lfw')
+        # self.lfw_pairs_file = create_mock_lfw_pairs(self.tmp_dir)
+        self.lfw_pairs_file = os.path.join(self.tmp_dir, 'pairs_lfw.txt')
+        print("lfw_pairs_file: " + self.lfw_pairs_file)
         self.pretrained_model_name = '20170512-110547'
         download_and_extract_model.download_and_extract_model(self.pretrained_model_name, 'data/')
         self.model_file = os.path.join('data', self.pretrained_model_name, 'model-%s.ckpt-250000' % self.pretrained_model_name)
