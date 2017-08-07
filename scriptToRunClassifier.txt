@@ -12,10 +12,10 @@ python src/classifier.py CLASSIFY /C:/facenetTestFolder/dataset_lfw_somePeople_c
 
 python src/classifier.py CLASSIFY /C:/facenetTestFolder/dataset_lfw_somePeople_classifySample C:/facenetTestFolder/20170512-110547/20170512-110547.pb C:/facenetTestFolder/lfw_somePeople_classifier_test2.pkl --batch_size 1000
 
-validate lfw:
-
-python src/validate_on_lfw.py /C:/facenetTestFolder/dataset_lfw C:/facenetTestFolder/20170512-110547 --lfw_batch_size 1000 --lfw_pairs C:/facenetTestFolder/lfw_pairs.txt
-
-align dataset:
+align lfw dataset:
 
 python src/align/align_dataset.py /C:/facenetTestFolder/dataset_lfw C:/facenetTestFolder/dataset_lfw_aligned --dlib_face_predictor C:/facenetTestFolder/shape_predictor_68_face_landmarks.dat --image_size 160
+
+validate lfw:
+
+python src/validate_on_lfw.py C:/facenetTestFolder/dataset_lfw_aligned C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 1000 --lfw_pairs C:/facenetTestFolder/lfw_pairs.txt --lfw_file_ext png

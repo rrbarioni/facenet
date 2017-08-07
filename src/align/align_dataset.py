@@ -114,7 +114,7 @@ def main(args):
                     else:
                         nrof_not_successfully_aligned += 1
                         print('Unable to align "%s"' % image_path)
-                        lfw_align_fail_list.write("Case " + nrof_not_successfully_aligned + ": unable to align " + image_path)
+                        lfw_align_fail_list.write("Case " + str(nrof_not_successfully_aligned) + ": unable to align " + image_path + "\n")
                             
     print('Total number of images: %d' % nrof_images_total)
     print('Number of successfully aligned images: %d' % nrof_successfully_aligned)
