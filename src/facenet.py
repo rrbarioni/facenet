@@ -447,6 +447,20 @@ def calculate_roc(thresholds, embeddings1, embeddings2, actual_issame, nrof_fold
           
     tpr = np.mean(tprs,0)
     fpr = np.mean(fprs,0)
+
+    tpr_fpr_alignedLfw_list_write = open("tpr_fpr_alignedLfw_list.txt", "w")
+
+    print("tpr_size: " + str(len(tprs)))
+    print("fpr_size: " + str(len(fprs)))
+
+    avg_tprs_all_folds = [sum(e)/len(e) for e in zip(*tprs)]
+    avg_fprs_all_folds = [sum(e)/len(e) for e in zip(*fprs)]
+    avg_tprs_all_folds.reverse()
+    avg_fprs_all_folds.reverse()
+
+    for i in np.arange(len(avg_tprs_all_folds)):
+        tpr_fpr_alignedLfw_list_write.write(str(avg_tprs_all_folds[i]) + ' ' + str(avg_fprs_all_folds[i]) + '\n')
+
     return tpr, fpr, accuracy
 
 def calculate_accuracy(threshold, dist, actual_issame):

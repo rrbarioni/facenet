@@ -19,3 +19,11 @@ python src/align/align_dataset.py /C:/facenetTestFolder/dataset_lfw C:/facenetTe
 validate lfw:
 
 python src/validate_on_lfw.py C:/facenetTestFolder/dataset_lfw_aligned C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 1000 --lfw_pairs C:/facenetTestFolder/lfw_pairs.txt --lfw_file_ext png
+
+validate lfw not aligned:
+
+python src/validate_on_lfw.py C:/facenetTestFolder/dataset_lfw C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 1000 --lfw_pairs C:/facenetTestFolder/lfw_pairs.txt --lfw_file_ext jpg
+
+download vgg face dataset:
+
+python src/download_vgg_face_dataset.py /C:/facenetTestFolder/dataset_vgg_face
