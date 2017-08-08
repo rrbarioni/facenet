@@ -428,6 +428,8 @@ def calculate_roc(thresholds, embeddings1, embeddings2, actual_issame, nrof_fold
     
     tprs = np.zeros((nrof_folds,nrof_thresholds))
     fprs = np.zeros((nrof_folds,nrof_thresholds))
+    tnrs = np.zeros((nrof_folds,nrof_thresholds))
+    fnrs = np.zeros((nrof_folds,nrof_thresholds))
     accuracy = np.zeros((nrof_folds))
     
     diff = np.subtract(embeddings1, embeddings2)
@@ -439,28 +441,37 @@ def calculate_roc(thresholds, embeddings1, embeddings2, actual_issame, nrof_fold
         # Find the best threshold for the fold
         acc_train = np.zeros((nrof_thresholds))
         for threshold_idx, threshold in enumerate(thresholds):
-            _, _, acc_train[threshold_idx] = calculate_accuracy(threshold, dist[train_set], actual_issame[train_set])
+            _, _, _, _, acc_train[threshold_idx] = calculate_accuracy(threshold, dist[train_set], actual_issame[train_set])
         best_threshold_index = np.argmax(acc_train)
         for threshold_idx, threshold in enumerate(thresholds):
-            tprs[fold_idx,threshold_idx], fprs[fold_idx,threshold_idx], _ = calculate_accuracy(threshold, dist[test_set], actual_issame[test_set])
-        _, _, accuracy[fold_idx] = calculate_accuracy(thresholds[best_threshold_index], dist[test_set], actual_issame[test_set])
+            tprs[fold_idx,threshold_idx], fprs[fold_idx,threshold_idx], tnrs[fold_idx,threshold_idx], fnrs[fold_idx,threshold_idx], _ = calculate_accuracy(threshold, dist[test_set], actual_issame[test_set])
+        _, _, _, _, accuracy[fold_idx] = calculate_accuracy(thresholds[best_threshold_index], dist[test_set], actual_issame[test_set])
           
     tpr = np.mean(tprs,0)
     fpr = np.mean(fprs,0)
+    tnr = np.mean(tnrs,0)
+    fnr = np.mean(fnrs,0)
 
-    tpr_fpr_alignedLfw_list_write = open("tpr_fpr_alignedLfw_list.txt", "w")
+    tpr_fpr_alignedLfw_list_write = open("tpr_fpr_alignedLfw_list_2.txt", "w")
 
     print("tpr_size: " + str(len(tprs)))
     print("fpr_size: " + str(len(fprs)))
+    print("tnr_size: " + str(len(tnrs)))
+    print("fnr_size: " + str(len(fnrs)))
 
     avg_tprs_all_folds = [sum(e)/len(e) for e in zip(*tprs)]
     avg_fprs_all_folds = [sum(e)/len(e) for e in zip(*fprs)]
+    avg_tnrs_all_folds = [sum(e)/len(e) for e in zip(*tnrs)]
+    avg_fnrs_all_folds = [sum(e)/len(e) for e in zip(*fnrs)]
     avg_tprs_all_folds.reverse()
     avg_fprs_all_folds.reverse()
+    avg_tnrs_all_folds.reverse()
+    avg_fnrs_all_folds.reverse()
 
     for i in np.arange(len(avg_tprs_all_folds)):
-        tpr_fpr_alignedLfw_list_write.write(str(avg_tprs_all_folds[i]) + ' ' + str(avg_fprs_all_folds[i]) + '\n')
+        tpr_fpr_alignedLfw_list_write.write(str(avg_tprs_all_folds[i]) + ' ' + str(avg_fprs_all_folds[i]) + ' ' + str(avg_tnrs_all_folds[i]) + ' ' + str(avg_fnrs_all_folds[i]) + '\n')
 
+    tpr_fpr_alignedLfw_list_write.close()
     return tpr, fpr, accuracy
 
 def calculate_accuracy(threshold, dist, actual_issame):
@@ -472,8 +483,10 @@ def calculate_accuracy(threshold, dist, actual_issame):
   
     tpr = 0 if (tp+fn==0) else float(tp) / float(tp+fn)
     fpr = 0 if (fp+tn==0) else float(fp) / float(fp+tn)
+    tnr = 0 if (tn+fp==0) else float(tn) / float(tn+fp)
+    fnr = 0 if (fn+tp==0) else float(fn) / float(fn+tp)
     acc = float(tp+tn)/dist.size
-    return tpr, fpr, acc
+    return tpr, fpr, tnr, fnr, acc
 
 
   
