@@ -1,0 +1,370 @@
+Read pairs from LFW took 0.015 seconds
+Get the paths for the corresponding images took 1.073 seconds
+Load model took 187.2 seconds
+Get images placeholder took 0.0 seconds
+Get embeddings took 0.0 seconds
+Get phase train placeholder took 0.0 seconds
+Get embedding size took 0.0 seconds
+        Load data from batch 0/120 took 0.531 seconds
+        Run embeddings from batch 0/120 took 19.26 seconds
+    Batch 0/120 took 19.79 seconds
+        Load data from batch 1/120 took 0.468 seconds
+        Run embeddings from batch 1/120 took 18.36 seconds
+    Batch 1/120 took 18.83 seconds
+        Load data from batch 2/120 took 0.468 seconds
+        Run embeddings from batch 2/120 took 18.56 seconds
+    Batch 2/120 took 19.03 seconds
+        Load data from batch 3/120 took 0.468 seconds
+        Run embeddings from batch 3/120 took 18.63 seconds
+    Batch 3/120 took 19.10 seconds
+        Load data from batch 4/120 took 0.531 seconds
+        Run embeddings from batch 4/120 took 18.65 seconds
+    Batch 4/120 took 19.18 seconds
+        Load data from batch 5/120 took 0.531 seconds
+        Run embeddings from batch 5/120 took 18.75 seconds
+    Batch 5/120 took 19.28 seconds
+        Load data from batch 6/120 took 0.453 seconds
+        Run embeddings from batch 6/120 took 18.51 seconds
+    Batch 6/120 took 18.96 seconds
+        Load data from batch 7/120 took 0.437 seconds
+        Run embeddings from batch 7/120 took 18.62 seconds
+    Batch 7/120 took 19.06 seconds
+        Load data from batch 8/120 took 0.421 seconds
+        Run embeddings from batch 8/120 took 18.25 seconds
+    Batch 8/120 took 18.68 seconds
+        Load data from batch 9/120 took 0.406 seconds
+        Run embeddings from batch 9/120 took 18.22 seconds
+    Batch 9/120 took 18.62 seconds
+        Load data from batch 10/120 took 0.406 seconds
+        Run embeddings from batch 10/120 took 18.29 seconds
+    Batch 10/120 took 18.70 seconds
+        Load data from batch 11/120 took 0.390 seconds
+        Run embeddings from batch 11/120 took 18.40 seconds
+    Batch 11/120 took 18.79 seconds
+        Load data from batch 12/120 took 0.468 seconds
+        Run embeddings from batch 12/120 took 18.36 seconds
+    Batch 12/120 took 18.82 seconds
+        Load data from batch 13/120 took 0.468 seconds
+        Run embeddings from batch 13/120 took 18.26 seconds
+    Batch 13/120 took 18.72 seconds
+        Load data from batch 14/120 took 0.468 seconds
+        Run embeddings from batch 14/120 took 18.17 seconds
+    Batch 14/120 took 18.64 seconds
+        Load data from batch 15/120 took 0.453 seconds
+        Run embeddings from batch 15/120 took 18.40 seconds
+    Batch 15/120 took 18.86 seconds
+        Load data from batch 16/120 took 0.468 seconds
+        Run embeddings from batch 16/120 took 18.28 seconds
+    Batch 16/120 took 18.75 seconds
+        Load data from batch 17/120 took 0.453 seconds
+        Run embeddings from batch 17/120 took 18.48 seconds
+    Batch 17/120 took 18.93 seconds
+        Load data from batch 18/120 took 0.437 seconds
+        Run embeddings from batch 18/120 took 18.37 seconds
+    Batch 18/120 took 18.81 seconds
+        Load data from batch 19/120 took 0.437 seconds
+        Run embeddings from batch 19/120 took 18.35 seconds
+    Batch 19/120 took 18.79 seconds
+        Load data from batch 20/120 took 0.421 seconds
+        Run embeddings from batch 20/120 took 18.39 seconds
+    Batch 20/120 took 18.81 seconds
+        Load data from batch 21/120 took 0.406 seconds
+        Run embeddings from batch 21/120 took 18.44 seconds
+    Batch 21/120 took 18.84 seconds
+        Load data from batch 22/120 took 0.406 seconds
+        Run embeddings from batch 22/120 took 18.54 seconds
+    Batch 22/120 took 18.94 seconds
+        Load data from batch 23/120 took 0.390 seconds
+        Run embeddings from batch 23/120 took 18.25 seconds
+    Batch 23/120 took 18.64 seconds
+        Load data from batch 24/120 took 0.453 seconds
+        Run embeddings from batch 24/120 took 18.32 seconds
+    Batch 24/120 took 18.78 seconds
+        Load data from batch 25/120 took 0.468 seconds
+        Run embeddings from batch 25/120 took 18.57 seconds
+    Batch 25/120 took 19.04 seconds
+        Load data from batch 26/120 took 0.515 seconds
+        Run embeddings from batch 26/120 took 18.68 seconds
+    Batch 26/120 took 19.20 seconds
+        Load data from batch 27/120 took 0.468 seconds
+        Run embeddings from batch 27/120 took 18.59 seconds
+    Batch 27/120 took 19.06 seconds
+        Load data from batch 28/120 took 0.515 seconds
+        Run embeddings from batch 28/120 took 18.65 seconds
+    Batch 28/120 took 19.17 seconds
+        Load data from batch 29/120 took 0.453 seconds
+        Run embeddings from batch 29/120 took 18.72 seconds
+    Batch 29/120 took 19.18 seconds
+        Load data from batch 30/120 took 0.484 seconds
+        Run embeddings from batch 30/120 took 18.58 seconds
+    Batch 30/120 took 19.06 seconds
+        Load data from batch 31/120 took 0.453 seconds
+        Run embeddings from batch 31/120 took 18.78 seconds
+    Batch 31/120 took 19.23 seconds
+        Load data from batch 32/120 took 0.453 seconds
+        Run embeddings from batch 32/120 took 18.72 seconds
+    Batch 32/120 took 19.17 seconds
+        Load data from batch 33/120 took 0.437 seconds
+        Run embeddings from batch 33/120 took 18.54 seconds
+    Batch 33/120 took 18.98 seconds
+        Load data from batch 34/120 took 0.468 seconds
+        Run embeddings from batch 34/120 took 18.53 seconds
+    Batch 34/120 took 19.00 seconds
+        Load data from batch 35/120 took 0.468 seconds
+        Run embeddings from batch 35/120 took 18.68 seconds
+    Batch 35/120 took 19.15 seconds
+        Load data from batch 36/120 took 0.484 seconds
+        Run embeddings from batch 36/120 took 18.59 seconds
+    Batch 36/120 took 19.07 seconds
+        Load data from batch 37/120 took 0.531 seconds
+        Run embeddings from batch 37/120 took 18.65 seconds
+    Batch 37/120 took 19.18 seconds
+        Load data from batch 38/120 took 0.515 seconds
+        Run embeddings from batch 38/120 took 18.42 seconds
+    Batch 38/120 took 18.94 seconds
+        Load data from batch 39/120 took 0.484 seconds
+        Run embeddings from batch 39/120 took 18.57 seconds
+    Batch 39/120 took 19.06 seconds
+        Load data from batch 40/120 took 0.453 seconds
+        Run embeddings from batch 40/120 took 18.52 seconds
+    Batch 40/120 took 18.97 seconds
+        Load data from batch 41/120 took 0.453 seconds
+        Run embeddings from batch 41/120 took 18.61 seconds
+    Batch 41/120 took 19.06 seconds
+        Load data from batch 42/120 took 0.484 seconds
+        Run embeddings from batch 42/120 took 18.43 seconds
+    Batch 42/120 took 18.91 seconds
+        Load data from batch 43/120 took 0.453 seconds
+        Run embeddings from batch 43/120 took 18.53 seconds
+    Batch 43/120 took 18.98 seconds
+        Load data from batch 44/120 took 0.421 seconds
+        Run embeddings from batch 44/120 took 18.56 seconds
+    Batch 44/120 took 18.98 seconds
+        Load data from batch 45/120 took 0.468 seconds
+        Run embeddings from batch 45/120 took 18.37 seconds
+    Batch 45/120 took 18.84 seconds
+        Load data from batch 46/120 took 0.406 seconds
+        Run embeddings from batch 46/120 took 18.39 seconds
+    Batch 46/120 took 18.79 seconds
+        Load data from batch 47/120 took 0.405 seconds
+        Run embeddings from batch 47/120 took 18.68 seconds
+    Batch 47/120 took 19.09 seconds
+        Load data from batch 48/120 took 0.500 seconds
+        Run embeddings from batch 48/120 took 18.51 seconds
+    Batch 48/120 took 19.01 seconds
+        Load data from batch 49/120 took 0.453 seconds
+        Run embeddings from batch 49/120 took 18.51 seconds
+    Batch 49/120 took 18.96 seconds
+        Load data from batch 50/120 took 0.468 seconds
+        Run embeddings from batch 50/120 took 18.55 seconds
+    Batch 50/120 took 19.01 seconds
+        Load data from batch 51/120 took 0.453 seconds
+        Run embeddings from batch 51/120 took 18.54 seconds
+    Batch 51/120 took 19.01 seconds
+        Load data from batch 52/120 took 0.515 seconds
+        Run embeddings from batch 52/120 took 18.57 seconds
+    Batch 52/120 took 19.09 seconds
+        Load data from batch 53/120 took 0.578 seconds
+        Run embeddings from batch 53/120 took 18.62 seconds
+    Batch 53/120 took 19.21 seconds
+        Load data from batch 54/120 took 0.437 seconds
+        Run embeddings from batch 54/120 took 18.65 seconds
+    Batch 54/120 took 19.09 seconds
+        Load data from batch 55/120 took 0.500 seconds
+        Run embeddings from batch 55/120 took 18.51 seconds
+    Batch 55/120 took 19.01 seconds
+        Load data from batch 56/120 took 0.453 seconds
+        Run embeddings from batch 56/120 took 18.34 seconds
+    Batch 56/120 took 18.79 seconds
+        Load data from batch 57/120 took 0.437 seconds
+        Run embeddings from batch 57/120 took 18.48 seconds
+    Batch 57/120 took 18.92 seconds
+        Load data from batch 58/120 took 0.484 seconds
+        Run embeddings from batch 58/120 took 18.70 seconds
+    Batch 58/120 took 19.18 seconds
+        Load data from batch 59/120 took 0.468 seconds
+        Run embeddings from batch 59/120 took 18.54 seconds
+    Batch 59/120 took 19.01 seconds
+        Load data from batch 60/120 took 0.500 seconds
+        Run embeddings from batch 60/120 took 18.36 seconds
+    Batch 60/120 took 18.86 seconds
+        Load data from batch 61/120 took 0.468 seconds
+        Run embeddings from batch 61/120 took 18.22 seconds
+    Batch 61/120 took 18.69 seconds
+        Load data from batch 62/120 took 0.453 seconds
+        Run embeddings from batch 62/120 took 18.28 seconds
+    Batch 62/120 took 18.73 seconds
+        Load data from batch 63/120 took 0.437 seconds
+        Run embeddings from batch 63/120 took 18.20 seconds
+    Batch 63/120 took 18.64 seconds
+        Load data from batch 64/120 took 0.453 seconds
+        Run embeddings from batch 64/120 took 18.04 seconds
+    Batch 64/120 took 18.50 seconds
+        Load data from batch 65/120 took 0.453 seconds
+        Run embeddings from batch 65/120 took 18.22 seconds
+    Batch 65/120 took 18.68 seconds
+        Load data from batch 66/120 took 0.437 seconds
+        Run embeddings from batch 66/120 took 18.33 seconds
+    Batch 66/120 took 18.77 seconds
+        Load data from batch 67/120 took 0.421 seconds
+        Run embeddings from batch 67/120 took 18.23 seconds
+    Batch 67/120 took 18.65 seconds
+        Load data from batch 68/120 took 0.421 seconds
+        Run embeddings from batch 68/120 took 18.16 seconds
+    Batch 68/120 took 18.58 seconds
+        Load data from batch 69/120 took 0.437 seconds
+        Run embeddings from batch 69/120 took 18.25 seconds
+    Batch 69/120 took 18.68 seconds
+        Load data from batch 70/120 took 0.484 seconds
+        Run embeddings from batch 70/120 took 18.42 seconds
+    Batch 70/120 took 18.90 seconds
+        Load data from batch 71/120 took 0.468 seconds
+        Run embeddings from batch 71/120 took 18.50 seconds
+    Batch 71/120 took 18.97 seconds
+        Load data from batch 72/120 took 0.468 seconds
+        Run embeddings from batch 72/120 took 18.39 seconds
+    Batch 72/120 took 18.86 seconds
+        Load data from batch 73/120 took 0.484 seconds
+        Run embeddings from batch 73/120 took 18.22 seconds
+    Batch 73/120 took 18.70 seconds
+        Load data from batch 74/120 took 0.468 seconds
+        Run embeddings from batch 74/120 took 18.23 seconds
+    Batch 74/120 took 18.70 seconds
+        Load data from batch 75/120 took 0.437 seconds
+        Run embeddings from batch 75/120 took 18.21 seconds
+    Batch 75/120 took 18.66 seconds
+        Load data from batch 76/120 took 0.468 seconds
+        Run embeddings from batch 76/120 took 18.22 seconds
+    Batch 76/120 took 18.69 seconds
+        Load data from batch 77/120 took 0.453 seconds
+        Run embeddings from batch 77/120 took 18.36 seconds
+    Batch 77/120 took 18.81 seconds
+        Load data from batch 78/120 took 0.421 seconds
+        Run embeddings from batch 78/120 took 18.48 seconds
+    Batch 78/120 took 18.90 seconds
+        Load data from batch 79/120 took 0.421 seconds
+        Run embeddings from batch 79/120 took 18.73 seconds
+    Batch 79/120 took 19.17 seconds
+        Load data from batch 80/120 took 0.562 seconds
+        Run embeddings from batch 80/120 took 18.94 seconds
+    Batch 80/120 took 19.51 seconds
+        Load data from batch 81/120 took 0.453 seconds
+        Run embeddings from batch 81/120 took 18.62 seconds
+    Batch 81/120 took 19.07 seconds
+        Load data from batch 82/120 took 0.484 seconds
+        Run embeddings from batch 82/120 took 18.62 seconds
+    Batch 82/120 took 19.11 seconds
+        Load data from batch 83/120 took 0.406 seconds
+        Run embeddings from batch 83/120 took 18.54 seconds
+    Batch 83/120 took 18.95 seconds
+        Load data from batch 84/120 took 0.515 seconds
+        Run embeddings from batch 84/120 took 18.64 seconds
+    Batch 84/120 took 19.15 seconds
+        Load data from batch 85/120 took 0.500 seconds
+        Run embeddings from batch 85/120 took 18.72 seconds
+    Batch 85/120 took 19.22 seconds
+        Load data from batch 86/120 took 0.546 seconds
+        Run embeddings from batch 86/120 took 18.50 seconds
+    Batch 86/120 took 19.04 seconds
+        Load data from batch 87/120 took 0.515 seconds
+        Run embeddings from batch 87/120 took 18.48 seconds
+    Batch 87/120 took 19.00 seconds
+        Load data from batch 88/120 took 0.500 seconds
+        Run embeddings from batch 88/120 took 19.40 seconds
+    Batch 88/120 took 19.90 seconds
+        Load data from batch 89/120 took 0.562 seconds
+        Run embeddings from batch 89/120 took 18.88 seconds
+    Batch 89/120 took 19.44 seconds
+        Load data from batch 90/120 took 0.453 seconds
+        Run embeddings from batch 90/120 took 18.32 seconds
+    Batch 90/120 took 18.78 seconds
+        Load data from batch 91/120 took 0.437 seconds
+        Run embeddings from batch 91/120 took 18.46 seconds
+    Batch 91/120 took 18.90 seconds
+        Load data from batch 92/120 took 0.453 seconds
+        Run embeddings from batch 92/120 took 18.57 seconds
+    Batch 92/120 took 19.02 seconds
+        Load data from batch 93/120 took 0.437 seconds
+        Run embeddings from batch 93/120 took 18.46 seconds
+    Batch 93/120 took 18.90 seconds
+        Load data from batch 94/120 took 0.437 seconds
+        Run embeddings from batch 94/120 took 18.44 seconds
+    Batch 94/120 took 18.88 seconds
+        Load data from batch 95/120 took 0.390 seconds
+        Run embeddings from batch 95/120 took 19.02 seconds
+    Batch 95/120 took 19.42 seconds
+        Load data from batch 96/120 took 0.546 seconds
+        Run embeddings from batch 96/120 took 18.59 seconds
+    Batch 96/120 took 19.14 seconds
+        Load data from batch 97/120 took 0.453 seconds
+        Run embeddings from batch 97/120 took 18.67 seconds
+    Batch 97/120 took 19.12 seconds
+        Load data from batch 98/120 took 0.546 seconds
+        Run embeddings from batch 98/120 took 18.58 seconds
+    Batch 98/120 took 19.12 seconds
+        Load data from batch 99/120 took 0.484 seconds
+        Run embeddings from batch 99/120 took 18.50 seconds
+    Batch 99/120 took 18.98 seconds
+        Load data from batch 100/120 took 0.468 seconds
+        Run embeddings from batch 100/120 took 18.46 seconds
+    Batch 100/120 took 18.93 seconds
+        Load data from batch 101/120 took 0.515 seconds
+        Run embeddings from batch 101/120 took 18.45 seconds
+    Batch 101/120 took 18.96 seconds
+        Load data from batch 102/120 took 0.484 seconds
+        Run embeddings from batch 102/120 took 18.57 seconds
+    Batch 102/120 took 19.06 seconds
+        Load data from batch 103/120 took 0.515 seconds
+        Run embeddings from batch 103/120 took 18.61 seconds
+    Batch 103/120 took 19.12 seconds
+        Load data from batch 104/120 took 0.468 seconds
+        Run embeddings from batch 104/120 took 18.57 seconds
+    Batch 104/120 took 19.04 seconds
+        Load data from batch 105/120 took 0.468 seconds
+        Run embeddings from batch 105/120 took 18.45 seconds
+    Batch 105/120 took 18.92 seconds
+        Load data from batch 106/120 took 0.406 seconds
+        Run embeddings from batch 106/120 took 18.47 seconds
+    Batch 106/120 took 18.87 seconds
+        Load data from batch 107/120 took 0.437 seconds
+        Run embeddings from batch 107/120 took 18.51 seconds
+    Batch 107/120 took 18.95 seconds
+        Load data from batch 108/120 took 0.500 seconds
+        Run embeddings from batch 108/120 took 18.47 seconds
+    Batch 108/120 took 18.97 seconds
+        Load data from batch 109/120 took 0.500 seconds
+        Run embeddings from batch 109/120 took 18.56 seconds
+    Batch 109/120 took 19.06 seconds
+        Load data from batch 110/120 took 0.453 seconds
+        Run embeddings from batch 110/120 took 18.43 seconds
+    Batch 110/120 took 18.89 seconds
+        Load data from batch 111/120 took 0.531 seconds
+        Run embeddings from batch 111/120 took 18.47 seconds
+    Batch 111/120 took 19.00 seconds
+        Load data from batch 112/120 took 0.515 seconds
+        Run embeddings from batch 112/120 took 18.43 seconds
+    Batch 112/120 took 18.95 seconds
+        Load data from batch 113/120 took 0.500 seconds
+        Run embeddings from batch 113/120 took 18.52 seconds
+    Batch 113/120 took 19.02 seconds
+        Load data from batch 114/120 took 0.468 seconds
+        Run embeddings from batch 114/120 took 18.62 seconds
+    Batch 114/120 took 19.09 seconds
+        Load data from batch 115/120 took 0.453 seconds
+        Run embeddings from batch 115/120 took 18.54 seconds
+    Batch 115/120 took 19.00 seconds
+        Load data from batch 116/120 took 0.468 seconds
+        Run embeddings from batch 116/120 took 18.48 seconds
+    Batch 116/120 took 18.95 seconds
+        Load data from batch 117/120 took 0.453 seconds
+        Run embeddings from batch 117/120 took 18.51 seconds
+    Batch 117/120 took 18.97 seconds
+        Load data from batch 118/120 took 0.453 seconds
+        Run embeddings from batch 118/120 took 18.61 seconds
+    Batch 118/120 took 19.06 seconds
+        Load data from batch 119/120 took 0.468 seconds
+        Run embeddings from batch 119/120 took 18.43 seconds
+    Batch 119/120 took 18.90 seconds
+Run forward pass on LFW images took 2276. seconds
+Evaluation took 7.578 seconds
+Total time was 2472. seconds

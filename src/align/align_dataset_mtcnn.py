@@ -25,6 +25,9 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import sys
+sys.path.append('src/')
+
 from scipy import misc
 import sys
 import os
@@ -35,6 +38,8 @@ import facenet
 import align.detect_face
 import random
 from time import sleep
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 def main(args):
     sleep(random.random())
