@@ -10,20 +10,10 @@ python src/classifier.py CLASSIFY /C:/facenetTestFolder/dataset_lfw C:/facenetTe
 
 align lfw dataset:
 
-python src/align/align_dataset.py /C:/facenetTestFolder/dataset_lfw C:/facenetTestFolder/dataset_lfw_aligned --dlib_face_predictor C:/facenetTestFolder/shape_predictor_68_face_landmarks.dat --image_size 160
-
-for N in {1..4}; do python src/align/align_dataset_mtcnn.py /C:/facenetTestFolder/dataset_lfw_facenet C:/facenetTestFolder/dataset_lfw_facenet_aligned --image_size 160 --margin 32 --random_order --gpu_memory_fraction 0.25 & done
-
 python src/align/align_dataset_mtcnn.py /C:/facenetTestFolder/dataset_lfw_facenet C:/facenetTestFolder/dataset_lfw_facenet_aligned --image_size 160 --margin 32 --random_order
 
 validate lfw:
 
-python src/validate_on_lfw.py C:/facenetTestFolder/dataset_lfw_aligned C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 1000 --lfw_pairs C:/facenetTestFolder/lfw_pairs.txt --lfw_file_ext png
-
-python src/validate_on_lfw.py C:/facenetTestFolder/dataset_lfw_aligned C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 1000 --lfw_pairs C:/facenetTestFolder/lfw_50_pairs.txt --lfw_file_ext png
+python src/validate_on_lfw.py C:/facenetTestFolder/dataset_lfw_facenet_aligned C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 1000 --lfw_pairs C:/facenetTestFolder/lfw_50_pairs.txt --lfw_file_ext png
 
 python src/validate_on_lfw.py C:/facenetTestFolder/dataset_lfw_facenet_aligned C:/facenetTestFolder/20170512-110547
-
-validate lfw not aligned:
-
-python src/validate_on_lfw.py C:/facenetTestFolder/dataset_lfw C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 1000 --lfw_pairs C:/facenetTestFolder/lfw_pairs.txt --lfw_file_ext jpg
