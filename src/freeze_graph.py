@@ -34,6 +34,9 @@ import os
 import sys
 import facenet
 
+def xrange(l):
+    return range(l)
+
 def main(args):
     with tf.Graph().as_default():
         with tf.Session() as sess:

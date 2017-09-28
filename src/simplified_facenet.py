@@ -229,9 +229,13 @@ def prewhiten(x):
     return y  
 
 def crop(image, random_crop, image_size):
+    for i in range(len(image.shape)):
+        print("image.shape[" + str(i) + "]: " + str(image.shape[i]))
     if image.shape[1]>image_size:
         sz1 = int(image.shape[1]//2)
         sz2 = int(image_size//2)
+        print(" sz1: " + str(sz1))
+        print(" sz2: " + str(sz2))
         if random_crop:
             diff = sz1-sz2
             (h, v) = (np.random.randint(-diff, diff+1), np.random.randint(-diff, diff+1))
@@ -336,8 +340,9 @@ def get_dataset(paths, has_class_directories=True):
     #         dataset.append(ImageClass(class_name, image_paths))
     # print("paths.split(':'): " + str(paths.split(':')))
     path = paths.split(':')[1]
-    # print("path: " + paths.split(':')[1])
+    print("path: " + path)
     path_exp = os.path.expanduser(path)
+    print("path_exp: " + path_exp)
     classes = os.listdir(path_exp)
     classes.sort()
     nrof_classes = len(classes)
@@ -396,7 +401,7 @@ def load_model(model):
         
         print('Metagraph file: %s' % meta_file)
         print('Checkpoint file: %s' % ckpt_file)
-      
+        
         saver = tf.train.import_meta_graph(os.path.join(model_exp, meta_file))
         saver.restore(tf.get_default_session(), os.path.join(model_exp, ckpt_file))
     
@@ -431,17 +436,12 @@ def calculate_roc(thresholds, embeddings1, embeddings2, actual_issame, nrof_fold
     tnrs = np.zeros((nrof_folds,nrof_thresholds))
     fnrs = np.zeros((nrof_folds,nrof_thresholds))
     accuracy = np.zeros((nrof_folds))
-    
+
     diff = np.subtract(embeddings1, embeddings2)
     dist = np.sum(np.square(diff),1)
     indices = np.arange(nrof_pairs)
-    print("dist: " + str(dist))
-    # for i in range(len(dist)):
-    #     print("dist " + str(i) + ": " + str(dist[i]))
-    lfw_pairs_write = open("lfw_pairs_similarities.txt", "w")
     for i in range(len(dist)):
-        lfw_pairs_write.write(str(dist[i]) + "\n")
-    lfw_pairs_write.close()
+        print("dist " + str(i) + ": " + str(dist[i]))
     
     for fold_idx, (train_set, test_set) in enumerate(k_fold.split(indices)):
         
@@ -459,8 +459,6 @@ def calculate_roc(thresholds, embeddings1, embeddings2, actual_issame, nrof_fold
     tnr = np.mean(tnrs,0)
     fnr = np.mean(fnrs,0)
 
-    tpr_fpr_alignedLfw_list_write = open("tpr_fpr_alignedLfw_list.txt", "w")
-
     # print("tpr_size: " + str(len(tprs)))
     # print("fpr_size: " + str(len(fprs)))
     # print("tnr_size: " + str(len(tnrs)))
@@ -475,10 +473,6 @@ def calculate_roc(thresholds, embeddings1, embeddings2, actual_issame, nrof_fold
     avg_tnrs_all_folds.reverse()
     avg_fnrs_all_folds.reverse()
 
-    for i in np.arange(len(avg_tprs_all_folds)):
-        tpr_fpr_alignedLfw_list_write.write(str(avg_tprs_all_folds[i]) + ' ' + str(avg_fprs_all_folds[i]) + ' ' + str(avg_tnrs_all_folds[i]) + ' ' + str(avg_fnrs_all_folds[i]) + '\n')
-
-    tpr_fpr_alignedLfw_list_write.close()
     return tpr, fpr, accuracy
 
 def calculate_accuracy(threshold, dist, actual_issame):

@@ -34,19 +34,14 @@ import os
 import argparse
 import tensorflow as tf
 import numpy as np
-import facenet
+import simplified_facenet as facenet
 import align.detect_face
 import random
 from time import sleep
-import time
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 def main(args):
-    # time_elapsed_log = open('alignDatasetMtcnn_timeElapsed_Log.txt', 'w')
-    # start_total_time = time.time()
-
-    # start_current_time = time.time()
     sleep(random.random())
     output_dir = os.path.expanduser(args.output_dir)
     if not os.path.exists(output_dir):
@@ -55,19 +50,14 @@ def main(args):
     src_path,_ = os.path.split(os.path.realpath(__file__))
     facenet.store_revision_info(src_path, output_dir, ' '.join(sys.argv))
     dataset = facenet.get_dataset(args.input_dir)
-    # end_current_time = time.time()
-    # time_elapsed_log.write('get_dataset took ' + str(end_current_time - start_current_time)[0:5] + ' seconds\n')
-    
+    # print(str(np.array([str(d) for d in dataset])))
     print('Creating networks and loading parameters')
     
-    # start_current_time = time.time()
     with tf.Graph().as_default():
         gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=args.gpu_memory_fraction)
         sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options, log_device_placement=False))
         with sess.as_default():
             pnet, rnet, onet = align.detect_face.create_mtcnn(sess, None)
-    # end_current_time = time.time()
-    # time_elapsed_log.write('Creating networks and loading parameters took ' + str(end_current_time - start_current_time)[0:5] + ' seconds\n')
     
     minsize = 20 # minimum size of face
     threshold = [ 0.6, 0.7, 0.7 ]  # three steps's threshold
@@ -89,7 +79,6 @@ def main(args):
                 if args.random_order:
                     random.shuffle(cls.image_paths)
             for image_path in cls.image_paths:
-                # start_image_time = time.time()
                 nrof_images_total += 1
                 filename = os.path.splitext(os.path.split(image_path)[1])[0]
                 output_filename = os.path.join(output_class_dir, filename+'.png')
@@ -109,10 +98,7 @@ def main(args):
                             img = facenet.to_rgb(img)
                         img = img[:,:,0:3]
 
-                        # start_detection_time = time.time()
                         bounding_boxes, _ = align.detect_face.detect_face(img, minsize, pnet, rnet, onet, threshold, factor)
-                        # end_detection_time = time.time()
-                        # time_elapsed_log.write('    Image detection took ' + str(end_detection_time - start_detection_time)[0:5] + ' seconds\n')
                         nrof_faces = bounding_boxes.shape[0]
                         if nrof_faces>0:
                             det = bounding_boxes[:,0:4]
@@ -131,25 +117,16 @@ def main(args):
                             bb[2] = np.minimum(det[2]+args.margin/2, img_size[1])
                             bb[3] = np.minimum(det[3]+args.margin/2, img_size[0])
                             cropped = img[bb[1]:bb[3],bb[0]:bb[2],:]
-                            # start_alignment_time = time.time()
                             scaled = misc.imresize(cropped, (args.image_size, args.image_size), interp='bilinear')
-                            # end_alignment_time = time.time()
-                            # time_elapsed_log.write('    Image alignment took ' + str(end_alignment_time - start_alignment_time)[0:5] + ' seconds\n')
                             nrof_successfully_aligned += 1
                             misc.imsave(output_filename, scaled)
                             text_file.write('%s %d %d %d %d\n' % (output_filename, bb[0], bb[1], bb[2], bb[3]))
                         else:
                             print('Unable to align "%s"' % image_path)
                             text_file.write('%s\n' % (output_filename))
-                # end_image_time = time.time()
-                # time_elapsed_log.write('Image time was ' + str(end_image_time - start_image_time)[0:5] + ' seconds\n')
                             
     print('Total number of images: %d' % nrof_images_total)
     print('Number of successfully aligned images: %d' % nrof_successfully_aligned)
-    
-    # end_total_time = time.time()
-    # time_elapsed_log.write('Total time was ' + str(end_total_time - start_total_time)[0:5] + ' seconds\n')
-    # time_elapsed_log.close()
 
 def parse_arguments(argv):
     parser = argparse.ArgumentParser()

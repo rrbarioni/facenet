@@ -111,7 +111,7 @@ def main(args):
             nrof_batches = int(math.ceil(1.0*nrof_images / batch_size))
             emb_array = np.zeros((nrof_images, embedding_size))
             for i in range(nrof_batches):
-                print('Batch ' + str(i) + '/' + str(nrof_batches))
+                print('Batch ' + str(i+1) + '/' + str(nrof_batches))
                 start_batch_time = time.time()
                 start_index = i*batch_size
                 end_index = min((i+1)*batch_size, nrof_images)
@@ -122,15 +122,15 @@ def main(args):
                 images = facenet.load_data(paths_batch, False, False, image_size)
                 feed_dict = { images_placeholder:images, phase_train_placeholder:False }
                 end_batch_loadData_time = time.time()
-                time_elapsed_log.write('        Load data from batch ' + str(i) + '/' + str(nrof_batches) + ' took ' + str(end_batch_loadData_time - start_batch_loadData_time)[0:5] + ' seconds\n')
+                time_elapsed_log.write('        Load data from batch ' + str(i+1) + '/' + str(nrof_batches) + ' took ' + str(end_batch_loadData_time - start_batch_loadData_time)[0:5] + ' seconds\n')
 
                 print('    Running embeddings')
                 start_batch_runEmbeddings_time = time.time()
                 emb_array[start_index:end_index,:] = sess.run(embeddings, feed_dict=feed_dict)
                 end_batch_runEmbeddings_time = time.time()
-                time_elapsed_log.write('        Run embeddings from batch ' + str(i) + '/' + str(nrof_batches) + ' took ' + str(end_batch_runEmbeddings_time - start_batch_runEmbeddings_time)[0:5] + ' seconds\n')
+                time_elapsed_log.write('        Run embeddings from batch ' + str(i+1) + '/' + str(nrof_batches) + ' took ' + str(end_batch_runEmbeddings_time - start_batch_runEmbeddings_time)[0:5] + ' seconds\n')
                 end_batch_time = time.time()
-                time_elapsed_log.write('    Batch ' + str(i) + '/' + str(nrof_batches) + ' took ' + str(end_batch_time - start_batch_time)[0:5] + ' seconds\n')
+                time_elapsed_log.write('    Batch ' + str(i+1) + '/' + str(nrof_batches) + ' took ' + str(end_batch_time - start_batch_time)[0:5] + ' seconds\n')
             end_forward_pass_time = time.time()
             time_elapsed_log.write('Run forward pass on LFW images took ' + str(end_forward_pass_time - start_forward_pass_time)[0:5] + ' seconds\n')
         
@@ -138,7 +138,7 @@ def main(args):
             tpr, fpr, accuracy, val, val_std, far = lfw.evaluate(emb_array, 
                 actual_issame, nrof_folds=args.lfw_nrof_folds)
             end_evaluation_time = time.time()
-            time_elapsed_log.write('Evaluation took ' + str(end_evaluation_time - start_evaluation_time)[0:5] + '\n seconds')
+            time_elapsed_log.write('Evaluation took ' + str(end_evaluation_time - start_evaluation_time)[0:5] + ' seconds\n')
 
             print('Accuracy: %1.3f+-%1.3f' % (np.mean(accuracy), np.std(accuracy)))
             print('Validation rate: %2.5f+-%2.5f @ FAR=%2.5f' % (val, val_std, far))

@@ -19,4 +19,4 @@ for point in points:
 
 # print(str(accuracies))
 print("max accuracy: " + str(max(accuracies)))
-print(str(np.argmax(accuracies)) + ", " + str(accuracies[np.argmax(accuracies)]))
+print(str(np.argmax(accuracies)/400) + ", " + str(accuracies[np.argmax(accuracies)]))

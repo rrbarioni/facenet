@@ -1,19 +1,43 @@
 train:
 
-python src/classifier.py TRAIN /C:/facenetTestFolder/dataset_lfw C:/facenetTestFolder/20170512-110547/20170512-110547.pb C:/facenetTestFolder/lfw_somePeople_classifier.pkl --batch_size 1000 --min_nrof_images_per_class 50 --nrof_train_images_per_class 50 --use_split_dataset
+python src/classifier.py TRAIN /C:/facenetTestFolder/lfw C:/facenetTestFolder/20170512-110547/20170512-110547.pb C:/facenetTestFolder/lfw_classifier.pkl --batch_size 1000 --min_nrof_images_per_class 50 --nrof_train_images_per_class 50 --use_split_dataset
 
 // treinar com base de dados extensa
 
 classify:
 
-python src/classifier.py CLASSIFY /C:/facenetTestFolder/dataset_lfw C:/facenetTestFolder/20170512-110547/20170512-110547.pb C:/facenetTestFolder/lfw_classifier.pkl --batch_size 1000
+python src/classifier.py CLASSIFY /C:/facenetTestFolder/lfw C:/facenetTestFolder/20170512-110547/20170512-110547.pb C:/facenetTestFolder/lfw_classifier.pkl --batch_size 1000
 
 align lfw dataset:
 
-python src/align/align_dataset_mtcnn.py /C:/facenetTestFolder/dataset_lfw_facenet C:/facenetTestFolder/dataset_lfw_facenet_aligned --image_size 160 --margin 32 --random_order
+python src/align/align_dataset_mtcnn.py /C:/facenetTestFolder/lfw C:/facenetTestFolder/lfw_aligned_2 --image_size 160 --margin 32 --random_order
+
+python src/align/simplified_align_dataset_mtcnn.py /C:/facenetTestFolder/lfw C:/facenetTestFolder/lfw_aligned_2_250 --image_size 250 --margin 32 --random_order
+
+python src/align/simplified_align_dataset_mtcnn_single_image.py C:/facenetTestFolder/lfw/Ronaldo_Luis_Nazario_de_Lima/Ronaldo_Luis_Nazario_de_Lima_0003.jpg C:/facenetTestFolder/lfw_aligned_py/Ronaldo_Luis_Nazario_de_Lima/Ronaldo_Luis_Nazario_de_Lima_0003.png --image_size 160 --margin 32
+
+python src/align/simplified_detect_dataset_mtcnn.py /C:/facenetTestFolder/lfw_ronaldo C:/facenetTestFolder/lfw_detected_py --random_order
+
+python src/align/simplified_detect_dataset_mtcnn.py /C:/facenetTestFolder/lfw C:/facenetTestFolder/lfw_detected_py --random_order
+
+python src/align/simplified_detect_dataset_mtcnn_single_image.py C:/facenetTestFolder/lfw/Ronaldo_Luis_Nazario_de_Lima/Ronaldo_Luis_Nazario_de_Lima_0003.jpg C:/facenetTestFolder/lfw_detected_py/Ronaldo_Luis_Nazario_de_Lima_0003.png
+
+python src/align/simplified_detect_dataset_mtcnn_single_image.py C:/facenetTestFolder/lfw/Manijeh_Hekmat/Manijeh_Hekmat_0001.jpg C:/facenetTestFolder/lfw_detected_py/Manijeh_Hekmat_0001.png
 
 validate lfw:
 
-python src/validate_on_lfw.py C:/facenetTestFolder/dataset_lfw_facenet_aligned C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 1000 --lfw_pairs C:/facenetTestFolder/lfw_50_pairs.txt --lfw_file_ext png
+python src/validate_on_lfw.py C:/facenetTestFolder/lfw_aligned C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 1000 --lfw_pairs C:/facenetTestFolder/lfw_pairs.txt --lfw_file_ext png
 
-python src/validate_on_lfw.py C:/facenetTestFolder/dataset_lfw_facenet_aligned C:/facenetTestFolder/20170512-110547
+python src/validate_on_lfw.py C:/facenetTestFolder/lfw_aligned C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 1000 --lfw_pairs C:/facenetTestFolder/lfw_50_pairs.txt --lfw_file_ext png
+
+python src/validate_on_lfw.py C:/facenetTestFolder/lfw_aligned C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 60 --lfw_pairs C:/facenetTestFolder/lfw_60_ronaldos.txt --lfw_file_ext png
+
+python src/validate_on_lfw.py C:/facenetTestFolder/lfw_aligned C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 1 --lfw_pairs C:/facenetTestFolder/lfw_ronaldo.txt --lfw_file_ext png
+
+python src/simplified_validate_on_lfw.py C:/facenetTestFolder/lfw_aligned C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 1000 --lfw_pairs C:/facenetTestFolder/lfw_50_pairs.txt --lfw_file_ext png
+
+python src/simplified_validate_on_lfw.py C:/facenetTestFolder/lfw_aligned C:/facenetTestFolder/20170512-110547 --image_size 160 --lfw_batch_size 1000 --lfw_pairs C:/facenetTestFolder/lfw_ronaldo.txt --lfw_file_ext png
+
+freeze graph:
+
+python src/freeze_graph.py C:/facenetTestFolder/20170512-110547 output_graph.pb
