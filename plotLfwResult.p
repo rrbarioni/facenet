@@ -11,4 +11,4 @@ set ylabel "true positive rate"
 set xlabel "false positive rate"
 set title "Image-Restricted, No Outside Data" font "giant"
 set key right bottom
-plot "tpr_fpr_alignedLfw_list.txt" using 2:1 with lines title "FaceNet, original"
+plot "roc_curve_213250.txt" using 2:1 with lines title "FaceNet, original"

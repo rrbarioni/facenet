@@ -20,7 +20,7 @@ python src/align/simplified_detect_dataset_mtcnn.py /C:/facenetTestFolder/lfw_ro
 
 python src/align/simplified_detect_dataset_mtcnn.py /C:/facenetTestFolder/lfw C:/facenetTestFolder/lfw_detected_py --random_order
 
-python src/align/simplified_detect_dataset_mtcnn_single_image.py C:/facenetTestFolder/lfw/Ronaldo_Luis_Nazario_de_Lima/Ronaldo_Luis_Nazario_de_Lima_0003.jpg C:/facenetTestFolder/lfw_detected_py/Ronaldo_Luis_Nazario_de_Lima_0003.png
+python src/align/simplified_detect_dataset_mtcnn_single_image.py C:/facenetTestFolder/lfw/Ronaldo_Luis_Nazario_de_Lima/Ronaldo_Luis_Nazario_de_Lima_0003.jpg C:/facenetTestFolder/lfw_detected_points_py/Ronaldo_Luis_Nazario_de_Lima_0003.png
 
 python src/align/simplified_detect_dataset_mtcnn_single_image.py C:/facenetTestFolder/lfw/Manijeh_Hekmat/Manijeh_Hekmat_0001.jpg C:/facenetTestFolder/lfw_detected_py/Manijeh_Hekmat_0001.png
 
@@ -41,3 +41,5 @@ python src/simplified_validate_on_lfw.py C:/facenetTestFolder/lfw_aligned C:/fac
 freeze graph:
 
 python src/freeze_graph.py C:/facenetTestFolder/20170512-110547 output_graph.pb
+
+python src/freeze_graph.py C:/facenetTestFolder/20171215-155920-teste output_graph.pb

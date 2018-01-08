@@ -1,4 +1,0 @@
-Case 1: unable to align /facenetTestFolder/dataset_lfw_facenet\Damarius_Bilbo\Damarius_Bilbo_0001.jpg
-Case 2: unable to align /facenetTestFolder/dataset_lfw_facenet\Jeff_Feldman\Jeff_Feldman_0001.jpg
-Case 3: unable to align /facenetTestFolder/dataset_lfw_facenet\Gary_Bald\Gary_Bald_0001.jpg
-Case 4: unable to align /facenetTestFolder/dataset_lfw_facenet\Saeb_Erekat\Saeb_Erekat_0002.jpg
