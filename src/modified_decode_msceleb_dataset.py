@@ -78,7 +78,7 @@ def main(args):
                     os.mkdir(full_class_dir)
                 full_path = os.path.join(full_class_dir, img_name.replace('/','_'))
                 cv2.imwrite(full_path, img) #pylint: disable=maybe-no-member
-                print('%8d: %s' % (i, full_path))
+                print(('%8d: %s' % (i, full_path)).encode('utf-8').decode('ascii'))
                 i += 1
   
 if __name__ == '__main__':
