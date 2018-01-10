@@ -4,6 +4,14 @@ python src/classifier.py TRAIN /C:/facenetTestFolder/lfw C:/facenetTestFolder/20
 
 // treinar com base de dados extensa
 
+train with ms-celeb:
+
+python src/train_softmax.py --logs_base_dir logs/facenet/ --models_base_dir models/facenet/ --data_dir datasets/lfw/aligned --image_size 160 --model_def models.inception_resnet_v1 --optimizer RMSPROP --learning_rate -1 --max_nrof_epochs 1 --keep_probability 0.8 --random_crop --random_flip --learning_rate_schedule_file data/learning_rate_schedule_classifier_msceleb.txt --weight_decay 5e-5 --center_loss_factor 1e-2 --center_loss_alfa 0.9
+
+extract ms-celeb from tsv:
+
+python src/decode_msceleb_dataset.py datasets/msceleb/decoded datasets/msceleb/tsv/MsCelebV1-Faces-Cropped.part.01.tsv --output_format png
+
 classify:
 
 python src/classifier.py CLASSIFY /C:/facenetTestFolder/lfw C:/facenetTestFolder/20170512-110547/20170512-110547.pb C:/facenetTestFolder/lfw_classifier.pkl --batch_size 1000
@@ -43,3 +51,5 @@ freeze graph:
 python src/freeze_graph.py C:/facenetTestFolder/20170512-110547 output_graph.pb
 
 python src/freeze_graph.py C:/facenetTestFolder/20171215-155920-teste output_graph.pb
+
+python src/freeze_graph.py C:/"Visual Studio 2015"/Projects/facenet/models/facenet/20171215-155920 output_graph.pb
